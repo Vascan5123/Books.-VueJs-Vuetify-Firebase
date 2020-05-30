@@ -48,9 +48,10 @@
                   :elevation="hover ? 15 : 4"
                   @click="toolbarisTransparent(false)"
                 >
+                {{book.url}}
                   <v-row>
                     <v-img
-                      src="https://s1-goods.ozstatic.by/1000/850/714/10/10714850_0.jpg"
+                      :src="book.url"
                       style="flex-basis: 125px"
                       class="my-3"
                       max-width="32%"

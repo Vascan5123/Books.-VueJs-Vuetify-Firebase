@@ -108,7 +108,7 @@ export default {
     return {
       drawer: false,
       primary_page: "/",
-      dialog: false,
+      dialog: false
     };
   },
   computed: {
@@ -116,7 +116,6 @@ export default {
       return this.$store.getters.isUserAuthenticated;
     },
     toolbarTransparent() {
-      console.log(this.$store.getters.get_toolbarTransparent);
       return this.$store.getters.get_toolbarTransparent;
     },
     menuItems() {
