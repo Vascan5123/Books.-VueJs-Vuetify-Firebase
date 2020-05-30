@@ -4,10 +4,9 @@ export default {
             [
                 {
                     id: 1,
-                    name: "Приключение Тома Соера",
-                    url: 1,
+                    name: "https://s1.livelib.ru/boocover/1002811591/200/8236/Mark_Tven__Priklyucheniya_Toma_Sojera.jpg",
                     description: " О приключениях сорванца и проказника Тома Сойера с удовольствием читают дети во всем мире. Только он может превратить работу в игру, сводить бородавки при помощи дохлой кошки, прогулять школу и все равно выйти сухим из воды",
-                    
+                    url: "https://s1.livelib.ru/boocover/1002811591/200/8236/Mark_Tven__Priklyucheniya_Toma_Sojera.jpg",
                     author: "Марк Твен",
                     rating: 4,
                 },

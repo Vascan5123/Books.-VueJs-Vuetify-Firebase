@@ -51,7 +51,7 @@
                 {{book.url}}
                   <v-row>
                     <v-img
-                      :src="book.url"
+                      :src="book.name"
                       style="flex-basis: 125px"
                       class="my-3"
                       max-width="32%"
