@@ -55,7 +55,7 @@
     <v-toolbar
       dark
       class="toolbarHeader"
-      :class="[toolbarTransparent == true ? 'toolbarTransparent': 'toolbarBlack']"
+      :class="[toolbarTransparent == true || toolbarTransparent == 'true' ? 'toolbarTransparent': 'toolbarBlack']"
     >
       <v-app-bar-nav-icon @click="drawer = true" class="hidden-sm-and-up"></v-app-bar-nav-icon>
       <v-toolbar-title @click="toolbarisTransparent(false)">
