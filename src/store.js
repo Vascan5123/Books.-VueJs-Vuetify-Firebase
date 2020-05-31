@@ -14,5 +14,5 @@ export default new Vuex.Store({
         GeneralModule,
         BooksModule,
     },
-    plugins: [createPersistedState()],
+    plugins: [createPersistedState()]
 })

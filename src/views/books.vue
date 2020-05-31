@@ -48,10 +48,9 @@
                   :elevation="hover ? 15 : 4"
                   @click="toolbarisTransparent(false)"
                 >
-                {{book.url}}
                   <v-row>
                     <v-img
-                      :src="book.name"
+                      :src="book.url"
                       style="flex-basis: 125px"
                       class="my-3"
                       max-width="32%"
@@ -69,7 +68,7 @@
                       >{{ book.description.length > 100 ? book.description.substr(0,100) + "..." : book.description.substr(0,100) }}</v-card-text>
                       <v-divider></v-divider>
                       <v-rating
-                        class="center"
+                        readonly
                         align="center"
                         v-model="book.rating"
                         color="blue accent-1"
