@@ -1,7 +1,7 @@
 
 export default {
     state: {
-        toolbarTransparent: true,
+        toolbarTransparent: localStorage.getItem('toolbarTransparent'),
         processing: false,
         error: false,
     },
@@ -17,6 +17,7 @@ export default {
         },
         toolbarTransparentTrue(state, payload) {
             state.toolbarTransparent = payload
+            localStorage.setItem('toolbarTransparent', payload)
         },
     },
     actions: {
