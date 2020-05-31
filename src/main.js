@@ -9,7 +9,7 @@ import store from './store.js'
 import firebaseConfig from './config/firebase.js'
 import firebase from 'firebase/app'
 import 'firebase/auth'
-
+import "firebase/firestore"
 
 
 const vuetifyOptions = { }
@@ -17,11 +17,11 @@ Vue.use(Vuetify)
 Vue.config.productionTip = false
 
 
-firebase.initializeApp(firebaseConfig);
+const firebaseApp = firebase.initializeApp(firebaseConfig);
+const db = firebaseApp.firestore()
 
 
-
-
+Vue.$db = db
 
 new Vue({
   render: h => h(App),
@@ -33,5 +33,6 @@ new Vue({
     firebase.auth().onAuthStateChanged(function(user) {
       vm.$store.dispatch("stateChange",user)
     })
+    this.$store.dispatch("LoadBooks")
   }
 }).$mount('#app')
