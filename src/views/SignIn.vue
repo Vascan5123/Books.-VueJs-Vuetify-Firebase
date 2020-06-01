@@ -34,11 +34,11 @@
                     </v-alert>
                     <v-form>
                         <v-text-field
-                        label="Login"
-                        name="login"
-                        prepend-icon="person"
+                        label="Email"
+                        name="email"
+                        prepend-icon="email"
                         type="text"
-                        v-model="login"
+                        v-model="email"
                         required='required'
                         ></v-text-field>
 
@@ -80,7 +80,7 @@ export default {
     data(){
         return{
             loading: false,
-            login: null,
+            email: null,
             password: null,
         }
     },
@@ -109,7 +109,7 @@ export default {
             setTimeout(() => (this.loading = false), 3000)
         },
         signin(){
-            this.$store.dispatch('signin', {login: this.login, password: this.password})
+            this.$store.dispatch('signin', {email: this.email, password: this.password})
         }
     }
 }

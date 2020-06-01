@@ -33,12 +33,22 @@
                     {{error}}
                     </v-alert>
                     <v-form>
+                        
                         <v-text-field
-                        label="Login"
-                        name="login"
+                        label="name"
+                        name="name"
                         prepend-icon="person"
                         type="text"
-                        v-model="login"
+                        v-model="name"
+                        required='required'
+                        ></v-text-field>
+
+                        <v-text-field
+                        label="email"
+                        name="email"
+                        prepend-icon="email"
+                        type="text"
+                        v-model="email"
                         required='required'
                         ></v-text-field>
 
@@ -89,7 +99,8 @@ export default {
     data(){
         return{
             loading: false,
-            login: null,
+            name: null,
+            email: null,
             password: null,
             confirmPassword: null,
         }
@@ -119,7 +130,7 @@ export default {
             setTimeout(() => (this.loading = false), 3000)
         },
         signup(){
-            this.$store.dispatch('signup', {login: this.login, password: this.password, confirmPassword: this.confirmPassword})
+            this.$store.dispatch('signup', {name: this.name, email: this.email, password: this.password, confirmPassword: this.confirmPassword})
         }
     }
 }
