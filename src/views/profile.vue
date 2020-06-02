@@ -5,11 +5,38 @@
         <v-card-title class="headline grey lighten-2" primary-title>Изменить фотографию</v-card-title>
 
         <v-col>
-<!--           <v-file-input label="Выберите фотографию" v-model="foto"></v-file-input> -->
-          <v-text-field label="Введите URL фотографии" v-model="foto"></v-text-field>
+          <v-tabs class="primary" grow>
+            <v-tab>Файл</v-tab>
+
+            <v-tab>URL</v-tab>
+
+            <v-tab-item>
+              <v-card flat>
+                <v-card-text>
+                  <v-file-input
+                    :disabled="fotoFileF"
+                    label="Выберите фотографию"
+                    v-model="fotoFile"
+                  ></v-file-input>
+                </v-card-text>
+              </v-card>
+            </v-tab-item>
+
+            <v-tab-item>
+              <v-card flat>
+                <v-card-text>
+                  <v-text-field
+                    :disabled="fotoUrlF"
+                    label="Введите URL фотографии"
+                    v-model="fotoUrl"
+                  ></v-text-field>
+                </v-card-text>
+              </v-card>
+            </v-tab-item>
+          </v-tabs>
         </v-col>
         <v-divider></v-divider>
-      
+
         <v-card-actions>
           <v-spacer></v-spacer>
           <v-btn color="primary" outlined @click="dialogFoto = false">Отмена</v-btn>
@@ -53,24 +80,44 @@ export default {
     return {
       photo: "./../static/photo.png",
       dialogFoto: false,
-      foto: null,
+      fotoFile: null,
+      fotoUrl: null,
     };
   },
   computed: {
     ...mapGetters(["isUserName", "isUserEmail", "isUserImage"]),
-    filterImage(){
-       if(this.isUserImage != null){
-         return this.isUserImage
-       }else{
-         return this.photo
-       }
+     filterImage() {
+      if (this.isUserImage != null) {
+        return this.isUserImage;
+      } else {
+        return this.photo;
+      } 
+    },
+
+    fotoUrlF() {
+      let dis = false;
+      if (this.fotoFile != null) {
+        dis = true;
+      }
+      return dis;
+    },
+
+    fotoFileF() {
+      let dis = false;
+      if (this.fotoUrl != null) {
+        dis = true;
+      }
+      return dis;
     }
-    
   },
   methods: {
-    fotoF(){
-      this.$store.dispatch('SetImageAction', this.foto)
-      this.dialogFoto = false
+    fotoF() {
+      if (this.fotoFile != null) {
+      this.$store.dispatch("SetImageStore", this.fotoFile);
+      }else{
+      this.$store.dispatch("SetImageUrl", this.fotoUrl);
+      }
+      this.dialogFoto = false;
     }
   }
 };
@@ -86,7 +133,6 @@ export default {
   flex-basis: 125px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.7);
   border-radius: 5px;
-
 }
 .textNameTop {
   color: white;
