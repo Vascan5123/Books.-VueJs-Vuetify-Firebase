@@ -69,6 +69,59 @@
         </v-flex>
       </v-layout>
     </v-container>
+
+    <v-container>
+      <v-layout>
+        <v-flex>
+          <v-row justify="center">
+            <v-col cols="12" sm="10" md="12" lg="10">
+              <v-card>
+                <v-toolbar flat color="primary" dark>
+                  <v-toolbar-title>Мой профиль</v-toolbar-title>
+                </v-toolbar>
+                <v-tabs vertical>
+                  <v-tab>
+                    <v-icon left>mdi-account</v-icon><span class="hidden-xs-only">Мои данные</span>
+                  </v-tab>
+                  <v-tab>
+                    <v-icon left>mdi-lock</v-icon><span class="hidden-xs-only">Изменить пароль</span>
+                  </v-tab>
+                  <v-tab>
+                    <v-icon left>book</v-icon><span class="hidden-xs-only">Скачанные книги</span>
+                  </v-tab>
+                  
+                  <v-tab-item>
+                    <v-card flat class="pl-10">
+                      <v-card-subtitle class="subtitle-1">Email: {{isUserEmail}}</v-card-subtitle>
+                      <v-card-subtitle class="subtitle-1">Имя: {{isUserName}}</v-card-subtitle>
+                    </v-card>
+                  </v-tab-item>
+                  <v-tab-item>
+                    <v-card flat>
+                      <v-card-subtitle class="subtitle-1 ma-2 text-center">
+                          Отправить на почту письмо с изменением пароля<br/>
+                        <v-btn class="primary" @click="editPassword"><v-icon>email</v-icon></v-btn>
+                      </v-card-subtitle>
+                    </v-card>
+                  </v-tab-item>
+                  <v-tab-item>
+                    <v-card flat>
+                      <v-card-text>
+                        <p>Fusce a quam. Phasellus nec sem in justo pellentesque facilisis. Nam eget dui. Proin viverra, ligula sit amet ultrices semper, ligula arcu tristique sapien, a accumsan nisi mauris ac eros. In dui magna, posuere eget, vestibulum et, tempor auctor, justo.</p>
+
+                        <p
+                          class="mb-0"
+                        >Cras sagittis. Phasellus nec sem in justo pellentesque facilisis. Proin sapien ipsum, porta a, auctor quis, euismod ut, mi. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nam at tortor in tellus interdum sagittis.</p>
+                      </v-card-text>
+                    </v-card>
+                  </v-tab-item>
+                </v-tabs>
+              </v-card>
+            </v-col>
+          </v-row>
+        </v-flex>
+      </v-layout>
+    </v-container>
   </div>
 </template>
 
@@ -81,17 +134,17 @@ export default {
       photo: "./../static/photo.png",
       dialogFoto: false,
       fotoFile: null,
-      fotoUrl: null,
+      fotoUrl: null
     };
   },
   computed: {
     ...mapGetters(["isUserName", "isUserEmail", "isUserImage"]),
-     filterImage() {
+    filterImage() {
       if (this.isUserImage != null) {
         return this.isUserImage;
       } else {
         return this.photo;
-      } 
+      }
     },
 
     fotoUrlF() {
@@ -113,13 +166,17 @@ export default {
   methods: {
     fotoF() {
       if (this.fotoFile != null) {
-      this.$store.dispatch("SetImageStore", this.fotoFile);
-      }else{
-      this.$store.dispatch("SetImageUrl", this.fotoUrl);
+        this.$store.dispatch("SetImageStore", this.fotoFile);
+      } else {
+        this.$store.dispatch("SetImageUrl", this.fotoUrl);
       }
       this.dialogFoto = false;
+    },
+    editPassword(){
+      this.$store.dispatch("EditPasswordAction", this.isUserEmail)
     }
   }
+
 };
 </script>
 

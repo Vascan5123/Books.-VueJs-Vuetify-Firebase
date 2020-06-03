@@ -103,6 +103,9 @@ export default {
                     console.log(error.message)
                 })
               })
+        },
+        EditPasswordAction(){
+            firebase.auth().sendPasswordResetEmail(firebase.auth().currentUser.email)
         }
         
     },
