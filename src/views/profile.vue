@@ -81,15 +81,18 @@
                 </v-toolbar>
                 <v-tabs vertical>
                   <v-tab>
-                    <v-icon left>mdi-account</v-icon><span class="hidden-xs-only">Мои данные</span>
+                    <v-icon left>mdi-account</v-icon>
+                    <span class="hidden-xs-only">Мои данные</span>
                   </v-tab>
                   <v-tab>
-                    <v-icon left>mdi-lock</v-icon><span class="hidden-xs-only">Изменить пароль</span>
+                    <v-icon left>mdi-lock</v-icon>
+                    <span class="hidden-xs-only">Изменить пароль</span>
                   </v-tab>
                   <v-tab>
-                    <v-icon left>book</v-icon><span class="hidden-xs-only">Скачанные книги</span>
+                    <v-icon left>book</v-icon>
+                    <span class="hidden-xs-only">Скачанные книги</span>
                   </v-tab>
-                  
+
                   <v-tab-item>
                     <v-card flat class="pl-10">
                       <v-card-subtitle class="subtitle-1">Email: {{isUserEmail}}</v-card-subtitle>
@@ -99,15 +102,16 @@
                   <v-tab-item>
                     <v-card flat>
                       <v-card-subtitle class="subtitle-1 ma-2 text-center">
-                          Отправить на почту письмо с изменением пароля<br/>
-                        <v-btn class="primary" @click="editPassword"><v-icon>email</v-icon></v-btn>
+                        Отправить на почту письмо с изменением пароля
+                        <br />
+                        <v-btn class="primary" @click="editPassword">
+                          <v-icon>email</v-icon>
+                        </v-btn>
                       </v-card-subtitle>
                     </v-card>
                   </v-tab-item>
                   <v-tab-item>
-                    <v-card flat>
-                      
-                    </v-card>
+                    <v-card flat></v-card>
                   </v-tab-item>
                 </v-tabs>
               </v-card>
@@ -166,11 +170,10 @@ export default {
       }
       this.dialogFoto = false;
     },
-    editPassword(){
-      this.$store.dispatch("EditPasswordAction", this.isUserEmail)
+    editPassword() {
+      this.$store.dispatch("EditPasswordAction", this.isUserEmail);
     }
   }
-
 };
 </script>
 

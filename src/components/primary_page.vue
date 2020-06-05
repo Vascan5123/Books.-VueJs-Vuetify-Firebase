@@ -97,7 +97,9 @@
 
               <h3 class="font-weight-black mb-4 text-uppercase" v-text="books[0].name"></h3>
 
-              <div class="title font-weight-light mb-5">{{books[0].description.substr(0,80) + "..."}}</div>
+              <div
+                class="title font-weight-light mb-5"
+              >{{books[0].description.substr(0,80) + "..."}}</div>
 
               <v-btn class="ml-n4 font-weight-black" text>Подробнее</v-btn>
             </v-col>
@@ -106,7 +108,9 @@
 
               <h3 class="font-weight-black mb-4 text-uppercase" v-text="books[1].name"></h3>
 
-              <div class="title font-weight-light mb-5">{{books[1].description.substr(0,80) + "..."}}</div>
+              <div
+                class="title font-weight-light mb-5"
+              >{{books[1].description.substr(0,80) + "..."}}</div>
 
               <v-btn class="ml-n4 font-weight-black" text>Подробнее</v-btn>
             </v-col>
@@ -115,7 +119,9 @@
 
               <h3 class="font-weight-black mb-4 text-uppercase" v-text="books[2].name"></h3>
 
-              <div class="title font-weight-light mb-5">{{books[2].description.substr(0,80) + "..."}}</div>
+              <div
+                class="title font-weight-light mb-5"
+              >{{books[2].description.substr(0,80) + "..."}}</div>
 
               <v-btn class="ml-n4 font-weight-black" text>Подробнее</v-btn>
             </v-col>
@@ -189,7 +195,7 @@ export default {
 .titleTop {
   text-shadow: 3px 2px 5px black;
 }
-.booksNews:hover{
+.booksNews:hover {
   background: #f0f0f0;
 }
 </style>

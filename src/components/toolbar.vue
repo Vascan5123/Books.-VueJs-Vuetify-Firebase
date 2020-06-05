@@ -66,16 +66,9 @@
 
       <v-toolbar-items class="hidden-xs-only">
         <!-- News button -->
-        <v-btn
-          to="/"
-          stop
-          text
-          @click="toolbarisTransparent(true), $vuetify.goTo('#news')"
-        >
-        <v-icon left>library_books</v-icon>
-          Новые книги
+        <v-btn to="/" stop text @click="toolbarisTransparent(true), $vuetify.goTo('#news')">
+          <v-icon left>library_books</v-icon>Новые книги
         </v-btn>
-
 
         <v-btn
           :to="item2.content"
@@ -95,7 +88,10 @@
         <!-- Confirm_Quit-->
         <v-dialog v-model="dialog" width="500">
           <v-card>
-            <v-card-title class="headline grey lighten-2" primary-title>Вы уверенны что хотите выйти?</v-card-title>
+            <v-card-title
+              class="headline grey lighten-2"
+              primary-title
+            >Вы уверенны что хотите выйти?</v-card-title>
 
             <v-card-text class="mt-5">You want quit?</v-card-text>
 
@@ -133,12 +129,11 @@ export default {
     menuItems() {
       return this.isUserAuthenticated
         ? [
- 
             {
               title: "Книги",
               icon: "menu_book",
               content: "/books",
-              toolbarT: true,
+              toolbarT: true
             },
             {
               title: "Мой аккаунт",
@@ -153,7 +148,7 @@ export default {
               title: "Книги",
               icon: "menu_book",
               content: "/books",
-              toolbarT: true,
+              toolbarT: true
             },
             {
               title: "Зарегистрироваться",

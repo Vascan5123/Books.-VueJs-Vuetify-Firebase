@@ -1,19 +1,8 @@
 <template>
-    <div id="news">
-
-        w
-
-
-
-
-
-    </div>
-
+  <div id="news">w</div>
 </template>
 
 
 <script>
-export default {
-    
-}
+export default {};
 </script>>

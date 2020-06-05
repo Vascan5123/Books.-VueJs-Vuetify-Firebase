@@ -18,12 +18,12 @@
                       style="word-break: break-word;"
                     >{{findBook.description}}</v-card-subtitle>
                     <v-row class="pa-4">
-                    <v-card-subtitle style="word-break: break-word;">Автор: {{findBook.author}}</v-card-subtitle>
-                    <v-spacer></v-spacer>
-                    <v-card-actions class="mr-5">
-                      <v-btn class="primary">Читать</v-btn>
-                      <v-btn class="primary">Скачать</v-btn>
-                    </v-card-actions>
+                      <v-card-subtitle style="word-break: break-word;">Автор: {{findBook.author}}</v-card-subtitle>
+                      <v-spacer></v-spacer>
+                      <v-card-actions class="mr-5">
+                        <v-btn class="primary">Читать</v-btn>
+                        <v-btn class="primary">Скачать</v-btn>
+                      </v-card-actions>
                     </v-row>
                     <v-divider></v-divider>
                     <v-rating
@@ -52,8 +52,8 @@
               <v-card class="py-5 cardCenter">
                 <v-row justify="center">
                   <v-col align="center">
-                  <v-card-text class="headline my-5">Краткое содержание</v-card-text>
-                  <v-card-text class="textCardCenter title" v-html="findBook.text"></v-card-text>
+                    <v-card-text class="headline my-5">Краткое содержание</v-card-text>
+                    <v-card-text class="textCardCenter title" v-html="findBook.text"></v-card-text>
                   </v-col>
                 </v-row>
               </v-card>
@@ -96,12 +96,12 @@ export default {
   max-height: 500px;
   min-height: 250px;
 }
-.cardCenter{
+.cardCenter {
   background-image: url("../assets/list.png");
   background-size: contain;
   background-repeat: repeat;
 }
-.textCardCenter{
+.textCardCenter {
   word-break: break-word;
   padding-left: 7%;
   padding-right: 7%;

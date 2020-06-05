@@ -12,7 +12,7 @@ import 'firebase/auth'
 import "firebase/firestore"
 
 
-const vuetifyOptions = { }
+const vuetifyOptions = {}
 Vue.use(Vuetify)
 Vue.config.productionTip = false
 
@@ -28,10 +28,10 @@ new Vue({
   vuetify: new Vuetify(vuetifyOptions),
   router,
   store,
-  created(){
+  created() {
     let vm = this
-    firebase.auth().onAuthStateChanged(function(user) {
-      vm.$store.dispatch("stateChange",user)
+    firebase.auth().onAuthStateChanged(function (user) {
+      vm.$store.dispatch("stateChange", user)
     })
     this.$store.dispatch("LoadBooks")
   }

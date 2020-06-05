@@ -92,22 +92,22 @@ export default {
             var storageRef = firebase.storage().ref();
             storageRef.child("images_avatar/" + state.user.userId).put(payload)
             storageRef.child("images_avatar/" + state.user.userId).getDownloadURL()
-            .then(function(url) {
-                firebase.auth().currentUser.updateProfile({ photoURL: url })
-                .then(() => {
-                    commit("SetImage", url)
-                    /* window.location.href = "/profile"; */
+                .then(function (url) {
+                    firebase.auth().currentUser.updateProfile({ photoURL: url })
+                        .then(() => {
+                            commit("SetImage", url)
+                            /* window.location.href = "/profile"; */
+                        })
+                        .catch(function (error) {
+                            commit("set_error", error.message)
+                            console.log(error.message)
+                        })
                 })
-                .catch(function (error) {
-                    commit("set_error", error.message)
-                    console.log(error.message)
-                })
-              })
         },
-        EditPasswordAction(){
+        EditPasswordAction() {
             firebase.auth().sendPasswordResetEmail(firebase.auth().currentUser.email)
         }
-        
+
     },
     getters: {
         isUserAuthenticated: (state) => state.user.isAuthenticated,

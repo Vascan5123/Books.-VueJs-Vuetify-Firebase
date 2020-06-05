@@ -1,48 +1,33 @@
 <template>
-<div id="app">
-<v-app>  
-    <toolbar/>
+  <div id="app">
+    <v-app>
+      <toolbar />
 
-  <router-view></router-view>
-
-
-
-
-
-
-
-
-
-
-
-
-
-</v-app>
+      <router-view></router-view>
+    </v-app>
   </div>
 </template>
 
 <script>
-import toolbar from './components/toolbar.vue'
-
+import toolbar from "./components/toolbar.vue";
 
 export default {
-  name: 'App',
+  name: "App",
   components: {
-    toolbar,
-
+    toolbar
   }
-}
+};
 </script>
 
 
 <style>
-html{
+html {
   scroll-behavior: smooth;
 }
 a {
-    text-decoration: none;
+  text-decoration: none;
 }
-.v-btn:before{
-      background-color: transparent !important;
+.v-btn:before {
+  background-color: transparent !important;
 }
 </style>>
