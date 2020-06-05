@@ -58,13 +58,25 @@
       :class="[toolbarTransparent == true || toolbarTransparent == 'true' ? 'toolbarTransparent': 'toolbarBlack']"
     >
       <v-app-bar-nav-icon @click="drawer = true" class="hidden-sm-and-up"></v-app-bar-nav-icon>
-      <v-toolbar-title @click="toolbarisTransparent(false)">
+      <v-toolbar-title @click="toolbarisTransparent(true)">
         <router-link :to="primary_page" class="white--text">Reading Books</router-link>
       </v-toolbar-title>
 
       <v-spacer></v-spacer>
 
       <v-toolbar-items class="hidden-xs-only">
+        <!-- News button -->
+        <v-btn
+          to="/"
+          stop
+          text
+          @click="toolbarisTransparent(true), $vuetify.goTo('#news')"
+        >
+        <v-icon left>library_books</v-icon>
+          Новые книги
+        </v-btn>
+
+
         <v-btn
           :to="item2.content"
           stop
@@ -78,12 +90,12 @@
         </v-btn>
 
         <v-btn v-if="this.isUserAuthenticated" stop text @click="dialog = true">
-          <v-icon left>power_settings_new</v-icon>Quit
+          <v-icon left>power_settings_new</v-icon>Выйти
         </v-btn>
         <!-- Confirm_Quit-->
         <v-dialog v-model="dialog" width="500">
           <v-card>
-            <v-card-title class="headline grey lighten-2" primary-title>Confirm Quit</v-card-title>
+            <v-card-title class="headline grey lighten-2" primary-title>Вы уверенны что хотите выйти?</v-card-title>
 
             <v-card-text class="mt-5">You want quit?</v-card-text>
 
@@ -91,8 +103,8 @@
 
             <v-card-actions>
               <v-spacer></v-spacer>
-              <v-btn color="primary" outlined @click="dialog = false">No</v-btn>
-              <v-btn color="primary" @click="SignOut()">Yes</v-btn>
+              <v-btn color="primary" outlined @click="dialog = false">Нет</v-btn>
+              <v-btn color="primary" @click="SignOut()">Да</v-btn>
             </v-card-actions>
           </v-card>
         </v-dialog>
@@ -121,20 +133,15 @@ export default {
     menuItems() {
       return this.isUserAuthenticated
         ? [
+ 
             {
-              title: "News",
-              icon: "library_books",
-              content: "/news",
-              toolbarT: true
-            },
-            {
-              title: "Books",
+              title: "Книги",
               icon: "menu_book",
               content: "/books",
-              toolbarT: true
+              toolbarT: true,
             },
             {
-              title: "My Account",
+              title: "Мой аккаунт",
               icon: "account_circle",
               content: "/profile",
               toolbarT: false
@@ -143,25 +150,19 @@ export default {
           ]
         : [
             {
-              title: "News",
-              icon: "library_books",
-              content: "/news",
-              toolbarT: true
-            },
-            {
-              title: "Books",
+              title: "Книги",
               icon: "menu_book",
               content: "/books",
-              toolbarT: true
+              toolbarT: true,
             },
             {
-              title: "SignUP",
+              title: "Зарегистрироваться",
               icon: "person_add",
               content: "/SignUp",
               toolbarT: false
             },
             {
-              title: "SignIn",
+              title: "Войти",
               icon: "person",
               content: "/SignIn",
               toolbarT: false
